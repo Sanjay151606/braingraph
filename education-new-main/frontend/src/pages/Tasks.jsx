@@ -36,14 +36,14 @@ export default function Tasks() {
   return (
     <div className="max-w-4xl mx-auto p-4 sm:p-6 lg:p-8 space-y-6 animate-in fade-in duration-150">
       {/* Header Banner */}
-      <div className="bg-gradient-to-r from-brain-700 via-indigo-700 to-purple-700 rounded-3xl p-6 sm:p-8 text-white shadow-lg space-y-2">
+      <div className="bg-gradient-to-r from-indigo-950 via-slate-900 to-purple-950 rounded-3xl p-6 sm:p-8 text-white border border-indigo-500/20 shadow-2xl space-y-2">
         <div className="flex items-center gap-2">
           <span className="text-3xl">📋</span>
-          <h1 className="text-2xl sm:text-3xl font-black tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-white">
             Micro-Task Execution
           </h1>
         </div>
-        <p className="text-xs sm:text-sm text-indigo-100/90 max-w-xl">
+        <p className="text-xs sm:text-sm text-indigo-200/90 max-w-xl leading-relaxed">
           Enter any daunting homework or study goal. AI will automatically decompose it into
           manageable 15-minute micro-steps to prevent ADHD task paralysis.
         </p>
@@ -56,12 +56,12 @@ export default function Tasks() {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="e.g. Complete Biology Chapter 4 summary and diagrams..."
-            className="flex-1 border border-slate-200 rounded-2xl px-4 py-3 text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brain-500/20 focus:border-brain-500"
+            className="flex-1 bg-slate-950/60 border border-slate-800 rounded-2xl px-4 py-3 text-xs sm:text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-indigo-500/80 focus:ring-2 focus:ring-indigo-500/20 transition-all"
           />
           <button
             type="submit"
             disabled={!title.trim() || loading}
-            className="bg-brain-600 hover:bg-brain-700 text-white font-bold px-5 py-3 rounded-2xl text-xs sm:text-sm transition flex items-center justify-center gap-2 disabled:opacity-50 cursor-pointer shadow-sm"
+            className="bg-indigo-600 hover:bg-indigo-550 text-white font-bold px-5 py-3 rounded-2xl text-xs sm:text-sm transition flex items-center justify-center gap-2 disabled:opacity-50 cursor-pointer shadow-md shadow-indigo-950/50 hover:scale-[1.02] active:scale-[0.98] transition-all"
           >
             <Sparkles className="w-4 h-4 text-amber-300" />
             <span>{loading ? "Breaking Down..." : "Add + AI Breakdown"}</span>

@@ -174,14 +174,14 @@ export default function StudyMaterials() {
   return (
     <div className="max-w-6xl mx-auto p-4 sm:p-6 lg:p-8 space-y-6 animate-in fade-in duration-150">
       {/* ── Page Header Banner ────────────────────────────────────────────── */}
-      <div className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-8 space-y-5">
+      <div className="bg-gradient-to-r from-indigo-950 via-slate-900 to-purple-950 rounded-3xl border border-indigo-500/20 shadow-2xl p-6 sm:p-8 space-y-5">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
               <span className="text-3xl">📚</span>
-              <h1 className="text-2xl font-black text-slate-900">Study Materials & Notes</h1>
+              <h1 className="text-2xl font-black text-white">Study Materials & Notes</h1>
             </div>
-            <p className="text-xs sm:text-sm text-slate-500 max-w-xl">
+            <p className="text-xs sm:text-sm text-indigo-200/90 max-w-xl leading-relaxed">
               Access curated lecture notes, chapter summaries, and scaffolded study guides adapted
               to your knowledge band and enrolled topics.
             </p>
@@ -190,23 +190,23 @@ export default function StudyMaterials() {
           <div className="flex items-center gap-2 flex-wrap">
             <button
               onClick={() => setQuizModalOpen(true)}
-              className="px-3.5 py-2 rounded-2xl bg-purple-50 text-purple-700 hover:bg-purple-100 border border-purple-200 text-xs font-bold transition flex items-center gap-1.5 cursor-pointer shadow-2xs"
+              className="px-3.5 py-2 rounded-2xl bg-purple-950/60 text-purple-300 hover:bg-purple-900/60 border border-purple-800/60 text-xs font-bold transition flex items-center gap-1.5 cursor-pointer shadow-sm"
             >
-              <Sparkles className="w-3.5 h-3.5 text-purple-600" />
+              <Sparkles className="w-3.5 h-3.5 text-purple-400" />
               <span>Take Adaptive Quiz</span>
             </button>
 
             <button
               onClick={() => setDoubtModalOpen(true)}
-              className="px-3.5 py-2 rounded-2xl bg-brain-50 text-brain-700 hover:bg-brain-100 border border-brain-200 text-xs font-bold transition flex items-center gap-1.5 cursor-pointer shadow-2xs"
+              className="px-3.5 py-2 rounded-2xl bg-indigo-950/60 text-indigo-300 hover:bg-indigo-900/60 border border-indigo-800/60 text-xs font-bold transition flex items-center gap-1.5 cursor-pointer shadow-sm"
             >
-              <Bot className="w-3.5 h-3.5 text-brain-600" />
+              <Bot className="w-3.5 h-3.5 text-indigo-400" />
               <span>Ask Doubt Assistant</span>
             </button>
 
             <button
               onClick={fetchMaterials}
-              className="px-3.5 py-2 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition flex items-center gap-1.5 cursor-pointer"
+              className="px-3.5 py-2 rounded-2xl bg-slate-800 hover:bg-slate-750 text-slate-200 border border-slate-700 text-xs font-bold transition flex items-center gap-1.5 cursor-pointer"
             >
               <RefreshCw className="w-3.5 h-3.5" />
               <span>Refresh</span>
@@ -216,15 +216,15 @@ export default function StudyMaterials() {
 
         {/* ── Active Knowledge Bands Pill Bar ───────────────────────────────── */}
         {myBands && myBands.length > 0 && (
-          <div className="p-3 rounded-2xl bg-indigo-50/60 border border-indigo-100 flex items-center gap-2 flex-wrap text-xs">
-            <span className="font-bold text-indigo-900 flex items-center gap-1">
-              <Award className="w-3.5 h-3.5 text-indigo-600" />
+          <div className="p-3 rounded-2xl bg-indigo-950/40 border border-indigo-900/60 flex items-center gap-2 flex-wrap text-xs">
+            <span className="font-bold text-indigo-300 flex items-center gap-1">
+              <Award className="w-3.5 h-3.5 text-indigo-400" />
               Your Knowledge Bands:
             </span>
             {myBands.map((b, i) => (
               <span
                 key={i}
-                className="px-2.5 py-0.5 rounded-full bg-white text-indigo-800 font-bold border border-indigo-200 text-[11px]"
+                className="px-2.5 py-0.5 rounded-full bg-indigo-950/60 text-indigo-300 font-bold border border-indigo-800/80 text-[11px]"
               >
                 {b.topic_name || b.topic_id}: <span className="capitalize">{b.band}</span>
               </span>
@@ -236,13 +236,13 @@ export default function StudyMaterials() {
         <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 pt-2">
           {/* Search Input */}
           <div className="relative sm:col-span-1">
-            <span className="absolute left-3.5 top-3 text-slate-400 text-sm">🔍</span>
+            <span className="absolute left-3.5 top-3 text-slate-500 text-sm">🔍</span>
             <input
               type="text"
               placeholder="Search notes, topics…"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-4 py-2.5 rounded-2xl border border-slate-200 text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brain-500/20 focus:border-brain-500 transition"
+              className="w-full pl-9 pr-4 py-2.5 rounded-2xl bg-slate-950/60 border border-slate-800 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-indigo-500/80 focus:ring-2 focus:ring-indigo-500/20 transition-all"
             />
           </div>
 
@@ -251,7 +251,7 @@ export default function StudyMaterials() {
             <select
               value={selectedSubject}
               onChange={(e) => setSelectedSubject(e.target.value)}
-              className="w-full px-4 py-2.5 rounded-2xl border border-slate-200 bg-white text-xs font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-brain-500/20 focus:border-brain-500"
+              className="w-full px-4 py-2.5 rounded-2xl border border-slate-800 bg-slate-950/60 text-xs font-semibold text-slate-300 focus:outline-none focus:border-indigo-500/80 focus:ring-2 focus:ring-indigo-500/20"
             >
               {SUBJECT_OPTIONS.map((sub) => (
                 <option key={sub} value={sub}>
@@ -266,7 +266,7 @@ export default function StudyMaterials() {
             <select
               value={selectedBand}
               onChange={(e) => setSelectedBand(e.target.value)}
-              className="w-full px-4 py-2.5 rounded-2xl border border-slate-200 bg-white text-xs font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-brain-500/20 focus:border-brain-500"
+              className="w-full px-4 py-2.5 rounded-2xl border border-slate-800 bg-slate-950/60 text-xs font-semibold text-slate-300 focus:outline-none focus:border-indigo-500/80 focus:ring-2 focus:ring-indigo-500/20"
             >
               {BAND_OPTIONS.map((b) => (
                 <option key={b.value} value={b.value}>
@@ -281,7 +281,7 @@ export default function StudyMaterials() {
             <select
               value={selectedType}
               onChange={(e) => setSelectedType(e.target.value)}
-              className="w-full px-4 py-2.5 rounded-2xl border border-slate-200 bg-white text-xs font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-brain-500/20 focus:border-brain-500"
+              className="w-full px-4 py-2.5 rounded-2xl border border-slate-800 bg-slate-950/60 text-xs font-semibold text-slate-300 focus:outline-none focus:border-indigo-500/80 focus:ring-2 focus:ring-indigo-500/20"
             >
               {MATERIAL_TYPE_OPTIONS.map((type) => (
                 <option key={type} value={type}>
@@ -309,21 +309,21 @@ export default function StudyMaterials() {
       {/* ── Loading Skeleton ───────────────────────────────────────────────── */}
       {loading && (
         <div className="space-y-4">
-          <div className="p-8 text-center bg-white rounded-3xl border border-slate-200 shadow-sm space-y-3">
+          <div className="p-8 text-center bg-slate-900/80 rounded-3xl border border-slate-800/90 shadow-xl space-y-3">
             <span className="text-3xl animate-spin inline-block">⏳</span>
-            <p className="text-xs font-bold text-slate-600">Loading study materials for your band…</p>
+            <p className="text-xs font-bold text-slate-400">Loading study materials for your band…</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[1, 2, 3].map((i) => (
               <div
                 key={i}
-                className="bg-white rounded-3xl border border-slate-200/80 p-5 space-y-4 animate-pulse"
+                className="bg-slate-900/80 rounded-3xl border border-slate-800/90 p-5 space-y-4 animate-pulse"
               >
-                <div className="h-5 bg-slate-200 rounded-md w-2/3" />
-                <div className="h-3 bg-slate-100 rounded-md w-1/3" />
-                <div className="h-16 bg-slate-100 rounded-xl w-full" />
-                <div className="h-8 bg-slate-200 rounded-xl w-full" />
+                <div className="h-5 bg-slate-800/60 rounded-md w-2/3" />
+                <div className="h-3 bg-slate-800/40 rounded-md w-1/3" />
+                <div className="h-16 bg-slate-800/40 rounded-xl w-full" />
+                <div className="h-8 bg-slate-800/60 rounded-xl w-full" />
               </div>
             ))}
           </div>
@@ -332,11 +332,11 @@ export default function StudyMaterials() {
 
       {/* ── Feature 3: Empty State ─────────────────────────────────────────── */}
       {!loading && filteredMaterials.length === 0 && (
-        <div className="bg-white rounded-3xl border border-slate-200/80 shadow-sm p-12 text-center space-y-3">
-          <div className="w-14 h-14 rounded-3xl bg-slate-50 text-slate-400 flex items-center justify-center text-2xl mx-auto border border-slate-100">
+        <div className="bg-slate-900/80 rounded-3xl border border-slate-800/90 shadow-xl p-12 text-center space-y-3">
+          <div className="w-14 h-14 rounded-3xl bg-slate-950 text-slate-400 flex items-center justify-center text-2xl mx-auto border border-slate-850 shadow-inner">
             📚
           </div>
-          <h2 className="text-base font-bold text-slate-800">
+          <h2 className="text-base font-bold text-white">
             No materials added yet for this topic
           </h2>
           <p className="text-xs text-slate-400 max-w-sm mx-auto leading-relaxed">
@@ -353,7 +353,7 @@ export default function StudyMaterials() {
                 setSelectedBand("All");
                 setSelectedType("All");
               }}
-              className="px-4 py-2 rounded-xl bg-brain-50 text-brain-700 text-xs font-bold hover:bg-brain-100 transition cursor-pointer"
+              className="px-4 py-2 rounded-xl bg-indigo-950 text-indigo-300 text-xs font-bold hover:bg-indigo-900 border border-indigo-850 transition cursor-pointer"
             >
               Reset Filters
             </button>

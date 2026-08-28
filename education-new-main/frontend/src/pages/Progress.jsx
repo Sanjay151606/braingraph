@@ -98,7 +98,7 @@ export default function Progress() {
           color: "#94a3b8",
         },
         grid: {
-          color: "#f1f5f9",
+          color: "#1e293b",
         },
       },
       x: {
@@ -116,39 +116,39 @@ export default function Progress() {
   return (
     <div className="max-w-4xl mx-auto p-4 sm:p-6 lg:p-8 space-y-6 animate-in fade-in duration-150">
       {/* Header Banner */}
-      <div className="bg-gradient-to-r from-brain-700 via-indigo-700 to-purple-700 rounded-3xl p-6 sm:p-8 text-white shadow-lg space-y-2">
+      <div className="bg-gradient-to-r from-indigo-950 via-slate-900 to-purple-950 rounded-3xl p-6 sm:p-8 text-white border border-indigo-500/20 shadow-2xl space-y-2">
         <div className="flex items-center gap-2">
           <span className="text-3xl">📈</span>
-          <h1 className="text-2xl sm:text-3xl font-black tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-white">
             Learning Progress & Mastery
           </h1>
         </div>
-        <p className="text-xs sm:text-sm text-indigo-100/90 max-w-xl">
+        <p className="text-xs sm:text-sm text-indigo-200/90 max-w-xl leading-relaxed">
           Visualized performance trends and AI weekly digests calibrated to sustained progress.
         </p>
       </div>
 
       {/* Weekly AI Digest Summary Card */}
       {weeklyDigest && (
-        <Card className="space-y-3 border-indigo-200/70 bg-gradient-to-br from-indigo-50/40 via-white to-purple-50/40">
+        <Card className="space-y-3 border-indigo-500/20 bg-gradient-to-br from-indigo-950/20 via-slate-900/80 to-purple-950/20 shadow-2xl">
           <div className="flex items-center gap-2">
-            <span className="p-2 rounded-2xl bg-purple-100 text-purple-700">
+            <span className="p-2 rounded-2xl bg-purple-950/60 text-purple-300 border border-purple-850">
               <Sparkles className="w-4 h-4" />
             </span>
             <div>
-              <h2 className="text-sm font-black text-slate-900">Weekly AI Performance Digest</h2>
+              <h2 className="text-sm font-black text-white">Weekly AI Performance Digest</h2>
               <p className="text-[11px] font-semibold text-slate-400">Auto-generated low-stress celebratory review</p>
             </div>
           </div>
 
-          <p className="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed pt-1">
+          <p className="text-xs sm:text-sm text-slate-300 font-medium leading-relaxed pt-1">
             {weeklyDigest.summary}
           </p>
 
           {weeklyDigest.celebrations && (
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-2">
               {weeklyDigest.celebrations.map((c, i) => (
-                <div key={i} className="p-3 rounded-2xl bg-white border border-indigo-100 text-xs text-indigo-950 font-bold shadow-2xs flex items-center gap-2">
+                <div key={i} className="p-3 rounded-2xl bg-indigo-950/45 border border-indigo-850 text-xs text-indigo-200 font-bold shadow-2xs flex items-center gap-2">
                   <span>🎉</span>
                   <span>{c}</span>
                 </div>
@@ -162,8 +162,8 @@ export default function Progress() {
       <Card className="space-y-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <TrendingUp className="w-4 h-4 text-brain-600" />
-            <h3 className="text-sm font-black text-slate-900">Mastery Score Over Time</h3>
+            <TrendingUp className="w-4 h-4 text-indigo-400" />
+            <h3 className="text-sm font-black text-white">Mastery Score Over Time</h3>
           </div>
           <span className="text-[11px] font-bold text-slate-400">Past 30 Days</span>
         </div>

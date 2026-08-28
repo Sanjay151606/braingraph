@@ -32,22 +32,22 @@ export default function FocusMode() {
     <div className="max-w-xl mx-auto p-4 sm:p-6 lg:p-8 text-center space-y-6 animate-in fade-in duration-150">
       {/* Header */}
       <div className="space-y-1">
-        <h1 className="text-2xl sm:text-3xl font-black text-slate-900 flex items-center justify-center gap-2">
+        <h1 className="text-2xl sm:text-3xl font-black text-white flex items-center justify-center gap-2">
           <span>Sustained Focus Mode</span>
           <span>🎯</span>
         </h1>
-        <p className="text-xs sm:text-sm text-slate-500 max-w-sm mx-auto">
+        <p className="text-xs sm:text-sm text-slate-400 max-w-sm mx-auto">
           Low-distraction intervals designed to enter and preserve flow state.
         </p>
       </div>
 
       {/* Timer Card */}
-      <Card className="p-8 sm:p-12 space-y-6 shadow-md border-slate-200">
+      <Card className="p-8 sm:p-12 space-y-6 shadow-xl border-slate-800/80">
         <div className="py-4">
-          <p className="text-6xl sm:text-7xl font-mono font-black text-brain-600 tracking-tight">
+          <p className="text-6xl sm:text-7xl font-mono font-black text-indigo-400 tracking-tight">
             {mm}:{ss}
           </p>
-          <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mt-2">
+          <span className="text-[11px] font-bold text-slate-450 uppercase tracking-wider block mt-2">
             {running ? "⚡ Focus Block in Progress" : "⏸ Paused"}
           </span>
         </div>
@@ -70,7 +70,7 @@ export default function FocusMode() {
           <button
             type="button"
             onClick={() => restart(minutes)}
-            className="px-4 py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition flex items-center gap-1.5 cursor-pointer"
+            className="px-4 py-3 rounded-2xl bg-slate-850 hover:bg-slate-800 text-slate-200 text-xs font-bold transition flex items-center gap-1.5 cursor-pointer border border-slate-800/80"
           >
             <RotateCcw className="w-4 h-4" />
             <span>Reset</span>
@@ -78,15 +78,15 @@ export default function FocusMode() {
         </div>
 
         {/* Interval Selectors */}
-        <div className="flex justify-center gap-2 pt-2 border-t border-slate-100">
+        <div className="flex justify-center gap-2 pt-2 border-t border-slate-800/80">
           {[15, 25, 45].map((m) => (
             <button
               key={m}
               onClick={() => restart(m)}
               className={`px-4 py-1.5 rounded-full text-xs font-bold transition cursor-pointer ${
                 minutes === m
-                  ? "bg-brain-100 text-brain-700 ring-2 ring-brain-500/20"
-                  : "bg-slate-50 text-slate-600 hover:bg-slate-100"
+                  ? "bg-indigo-950 text-indigo-300 ring-2 ring-indigo-500/20 border border-indigo-800"
+                  : "bg-slate-950/60 text-slate-400 hover:bg-slate-900 border border-slate-800"
               }`}
             >
               {m} min sprint
@@ -100,9 +100,9 @@ export default function FocusMode() {
         <button
           type="button"
           onClick={() => setDistractions((d) => d + 1)}
-          className="px-4 py-2 rounded-2xl bg-amber-50 hover:bg-amber-100 border border-amber-200 text-amber-900 text-xs font-bold transition inline-flex items-center gap-2 cursor-pointer shadow-2xs"
+          className="px-4 py-2 rounded-2xl bg-amber-950/40 hover:bg-amber-900/40 border border-amber-800/60 text-amber-300 text-xs font-bold transition inline-flex items-center gap-2 cursor-pointer shadow-sm"
         >
-          <BellOff className="w-3.5 h-3.5 text-amber-600" />
+          <BellOff className="w-3.5 h-3.5 text-amber-400" />
           <span>Noticed a Distraction? ({distractions} logged)</span>
         </button>
         <p className="text-[11px] text-slate-400">

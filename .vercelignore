@@ -1,0 +1,7 @@
+education-new-main/frontend/node_modules/
+education-new-main/backend/venv/
+education-new-main/backend/braingraph.db
+.git/
+.vscode/
+node_modules/
+dist/
